@@ -9,12 +9,12 @@ $ make generate-xcodeproj
 ### SwiftLintで静的解析と自動修正
 
 ```
-mint run SwiftLint
+$ mint run SwiftLint
 ```
 
 ### SpellCheckerでスペルチェック
 
 
 ```
-mint run SpellChecker
+$ mint run SpellChecker
 ```
