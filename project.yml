@@ -18,10 +18,16 @@ targets:
     platform: iOS
 
     sources:
-      - xcodegen-sample
-      - path: "xcodegen-sample/Generated/R.generated.swift"
-        optional: true
-        type: file
+        - xcodegen-sample
+            - path: Libs/R_swift/R.generated.swift
+                optional: true
+                createIntermediateGroups: true
+            - path: Libs/BuildConfig_swift/BuildConfig.generated.swift
+                optional: true
+                createIntermediateGroups: true
+            - path: Libs/BuildConfig_swift/BuildConfig.plist
+                optional: true
+                createIntermediateGroups: true
 
     dependencies:
       - package: Rswift
