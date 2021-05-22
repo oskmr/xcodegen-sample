@@ -1,0 +1,46 @@
+name: xcodegen-sample
+
+options:
+  bundleIdPrefix: com.miseri.xcodegen-sample
+  developmentLanguage: ja
+  deploymentTarget:
+  iOS: 14.3
+  xcodeVersion: "12.3"
+
+packages:
+  Rswift:
+    url: https://github.com/mac-cain13/R.swift.Library
+    version: 5.3.0
+
+targets:
+  xcodegen-sample:
+    type: application
+    platform: iOS
+
+    sources:
+      - xcodegen-sample
+      - path: "xcodegen-sample/Generated/R.generated.swift"
+        optional: true
+        type: file
+
+    dependencies:
+      - package: Rswift
+
+    preBuildScripts:
+      # R.swiftでリソースファイルの生成
+      - path: ./Scripts/XcodeGen/rswift.sh
+        name: Generate Resources with R.swift
+        inputFiles:
+          - $TEMP_DIR/rswift-lastrun
+        outputFiles:
+          - $SRCROOT/$TARGET_NAME/Generated/R.generated.swift
+        postCompileScripts:
+
+      # SwiftLintで静的解析と自動修正
+      - path: ./Scripts/XcodeGen/swiftlint.sh
+        name: Run SwiftLint
+
+      # SpellCheckerでスペルチェック
+      - path: ./Scripts/XcodeGen/spellchecker.sh
+        name: Run SpellChecker
+
