@@ -1,4 +1,5 @@
 # xcodegen-sample
+XcodeGenを完全に理解するためのプロジェクト
 
 ### プロジェクトファイルの生成
 
