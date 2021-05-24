@@ -2,10 +2,8 @@ name: xcodegen-sample
 
 options:
   bundleIdPrefix: com.miseri.xcodegen-sample
-  developmentLanguage: ja
   deploymentTarget:
   iOS: 14.3
-  xcodeVersion: "12.3"
 
 packages:
   Rswift:
@@ -18,16 +16,10 @@ targets:
     platform: iOS
 
     sources:
-        - xcodegen-sample
-            - path: Libs/R_swift/R.generated.swift
-                optional: true
-                createIntermediateGroups: true
-            - path: Libs/BuildConfig_swift/BuildConfig.generated.swift
-                optional: true
-                createIntermediateGroups: true
-            - path: Libs/BuildConfig_swift/BuildConfig.plist
-                optional: true
-                createIntermediateGroups: true
+      - xcodegen-sample
+      - path: "xcodegen-sample/Generated/R.generated.swift"
+        optional: true
+        type: file
 
     dependencies:
       - package: Rswift

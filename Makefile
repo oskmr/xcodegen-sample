@@ -1,4 +1,4 @@
-PRODUCT_NAME := Foo
+PRODUCT_NAME := xcodegen-sample
 
 .PHONY: generate-xcodeproj
 generate-xcodeproj:
@@ -7,4 +7,4 @@ generate-xcodeproj:
 
 .PHONY: open
 open:
-	open ./${PRODUCT_NAME}.xcworkspace
+	open ./${PRODUCT_NAME}.xcodeproj
